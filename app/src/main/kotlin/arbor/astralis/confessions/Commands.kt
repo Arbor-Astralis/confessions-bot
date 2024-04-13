@@ -39,4 +39,6 @@ private suspend fun createModerationCommands(kord: Kord) {
     kord.createGlobalChatInputCommand(COMMAND_DEFINE_CONFESSION_MOD_CHANNEL, "(Optional) Set the channel for $BRAND_NAME to post confessions for approval first") {
         options = mutableListOf(modChannelList)
     }
+
+    kord.createGlobalChatInputCommand(COMMAND_UNDEFINE_CONFESSION_MOD_CHANNEL, "Clear the setting for a confessions approval channel")
 }

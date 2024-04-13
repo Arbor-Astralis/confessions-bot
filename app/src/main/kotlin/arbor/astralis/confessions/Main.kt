@@ -56,6 +56,34 @@ suspend fun handleCommandReceived(
         handleDefineConfessionChannel(options, interaction, kord)
     } else if (name == COMMAND_DEFINE_CONFESSION_MOD_CHANNEL) {
         handleDefineConfessionModChannel(options, interaction, kord)
+    } else if (name == COMMAND_UNDEFINE_CONFESSION_MOD_CHANNEL) {
+        handleUndefineConfessionModChannel(options, interaction, kord)
+    }
+}
+
+suspend fun handleUndefineConfessionModChannel(
+    options: Optional<List<OptionData>>,
+    interaction: ApplicationCommandInteraction,
+    kord: Kord
+) {
+    val guildId = interaction.data.guildId.value!!
+
+    // Validate user has permissions
+    val userPermissions = kord.getGuild(guildId).getMember(interaction.user.id).getPermissions()
+    if (!userPermissions.contains(Permission.Administrator)) {
+        interaction.respondPublic {
+            content = DEFINE_CONFESSIONS_CHANNEL_NO_PERMS_RESPONSES.random()
+        }
+
+        return
+    }
+
+    val guildSettings = Settings.getForGuild(guildId)
+    guildSettings.confessionsModChannelId = null
+    Settings.persistForGuild(guildSettings)
+
+    interaction.respondPublic {
+        content = UNDEFINE_CONFESSIONS_MOD_CHANNEL_SUCCESSFUL_RESPONSES.random()
     }
 }
 

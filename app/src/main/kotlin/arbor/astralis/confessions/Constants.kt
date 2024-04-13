@@ -10,6 +10,8 @@ val COMMAND_DEFINE_CONFESSION_CHANNEL_OPTION_CHANNEL = "channel"
 val COMMAND_DEFINE_CONFESSION_MOD_CHANNEL = "set-confession-mod-channel"
 val COMMAND_DEFINE_CONFESSION_MOD_CHANNEL_OPTION_CHANNEL = "channel"
 
+val COMMAND_UNDEFINE_CONFESSION_MOD_CHANNEL = "unset-confession-mod-channel"
+
 // Button IDs
 val BUTTON_ACCEPT_CONFESSION_ID = "accept_confession"
 val BUTTON_REJECT_CONFESSION_ID = "reject_confession"
@@ -38,6 +40,10 @@ val DEFINE_CONFESSIONS_MOD_CHANNEL_RESPONSES = listOf(
     "%s? You can count on me!",
 )
 
+val UNDEFINE_CONFESSIONS_MOD_CHANNEL_SUCCESSFUL_RESPONSES = listOf(
+    "M'kay, confessions will no longer require approvals n'eow~",
+    "If you say so. Freedom of speech hooray!!"
+)
 
 val CONFESSION_SUCCESS_NO_MOD = listOf(
     "No problem!",
