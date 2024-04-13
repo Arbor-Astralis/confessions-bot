@@ -77,9 +77,25 @@ val CONFESSION_MOD_REJECT_RESPONSE = listOf(
     "Awww that's a shame....",
     "Naurrr, that's too bad...",
     "Weally? Was it that bad?",
-    "Uh-huh.... I guess it wasn't okay after all",
+    "Uh-huh.... I guess it wasn't okay after all.",
     "Wahh, they're gonna be sad! But it is whatever."
 )
+
+val CONFESSION_USER_REJECT_RESPONSE = listOf(
+    "Hey hey, so I was told that we cannot post this confession you made.",
+    "Yoohoo, I wasn't allowed to submit this recent confession you made.",
+    "Nee nee~ I tried my best but your recent confession was still turned down:"
+)
+
+val CONFESSION_USER_DM_TEMPLATE = "" +
+        "%s " +
+        "```%s```\n" +
+        "Word goes that the council does not endorse confessions that are:\n" +
+        "- Vent, hate speech or other overly negative sentiments -- these go to the vent channel so members can respond to you properly.\n" +
+        "- Heavy topics such as rape, suicide, self-harm -- these will not be accepted by any means.\n" +
+        "- (Suspected of) making references to other members in the server, especially if these are putting them in negative light.\n" +
+        "\n" +
+        "... in other words, they're trying to keep the confessions channel for more wholesome things! Better luck next time~"
 
 val CONFESSION_FAIL_NO_SETUP = listOf(
     "Oopsie, the confessions channel is not setup. Ask an administrator to set one up with the `/$COMMAND_DEFINE_CONFESSION_CHANNEL` command",

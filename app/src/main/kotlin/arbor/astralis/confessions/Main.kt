@@ -217,8 +217,19 @@ suspend fun handleAcceptConfession(data: InteractionData, interaction: ButtonInt
 
 
 suspend fun handleRejectConfession(data: InteractionData, interaction: ButtonInteraction, kord: Kord) {
+    val userDmChannel = kord.getGuild(data.guildId.value!!).getMember(interaction.user.id).getDmChannelOrNull()
+    
+    if (userDmChannel != null) {
+        val confessionMessage = interaction.message.embeds.get(0).description
+        val introLine = CONFESSION_USER_REJECT_RESPONSE.random()
+        
+        userDmChannel.createMessage {
+            content = CONFESSION_USER_DM_TEMPLATE.format(introLine, confessionMessage)
+        }
+    }
+
     interaction.respondEphemeral {
-        content = CONFESSION_MOD_REJECT_RESPONSE.random()
+        content = CONFESSION_MOD_REJECT_RESPONSE.random() + " I'll tell them in DMs then."
     }
 }
 
